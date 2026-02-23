@@ -4276,7 +4276,7 @@
           },
           {
             "id": "a_jailbreak",
-            "text": "una fuga"
+            "text": "una fuga de la cárcel"
           },
           {
             "id": "an_intervention",
@@ -6822,7 +6822,7 @@
           },
           {
             "id": "a_jailbreak",
-            "text": "una fuga"
+            "text": "una fuga de la cárcel"
           },
           {
             "id": "an_intervention",

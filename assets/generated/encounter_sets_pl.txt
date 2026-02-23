@@ -544,8 +544,8 @@
   "zcx_destiny_and_prophecy": "Destiny and Prophecy",
   "zcx_circus_ex_mortis": "Circus Ex Mortis",
   "film_fatale": "Film Fatale",
-  "forgotten_island": "Forgotten Island",
-  "abominable_contessa": "Abominable Contessa",
-  "cosmic_journey": "Cosmic Journey",
+  "forgotten_island": "Zapomniana wyspa",
+  "abominable_contessa": "Upiorna hrabina",
+  "cosmic_journey": "Kosmiczna wyprawa",
   "enthralling_encore": "Enthralling Encore"
 }
