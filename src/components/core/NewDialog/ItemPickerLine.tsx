@@ -26,8 +26,8 @@ export default function ItemPickerLine<T>({ iconName, iconNode, descriptionNode,
   const { colors } = useContext(StyleContext);
   const onPress = useCallback(() => {
     ReactNativeHapticFeedback.trigger('impactLight');
-    if (onValueChange && value !== undefined) {
-      onValueChange(value);
+    if (onValueChange) {
+      onValueChange(value as T);
     }
   }, [onValueChange, value]);
   const scale = useSharedValue(1);
