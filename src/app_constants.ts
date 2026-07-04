@@ -173,6 +173,7 @@ export function isSpecialToken(token: ChaosTokenType) {
 export const POOL_CURRENT_PACKS = [];
 export const POOL_INVESTIGATOR_CYCLE = 'cycle:investigator';
 export const POOL_INVESTIGATOR_CH2_CYCLE = 'cycle:investigator_ch2';
+export const POOL_INVESTIGATOR_CH2_CYCLE_LEGACY = 'cycle:investigator_ch2';
 export const POOL_INVESTIGATOR_PACKS = ['nat','har','win','jac','ste'];
 export const POOL_INVESTIGATOR_CH2_PACKS = ['and','car','mar','mig','tom'];
 
@@ -837,6 +838,7 @@ export function expandPackCode(packCode: string): string[] {
     case POOL_INVESTIGATOR_CYCLE:
       return POOL_INVESTIGATOR_PACKS;
     case POOL_INVESTIGATOR_CH2_CYCLE:
+    case POOL_INVESTIGATOR_CH2_CYCLE_LEGACY:
       return POOL_INVESTIGATOR_CH2_PACKS;
     default: {
       const specialPack = SPECIAL_PACKS.find(sp => sp.code === packCode);

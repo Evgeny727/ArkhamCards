@@ -1,4 +1,4 @@
-import { cycleName, expandPackCode, getCardPoolSections, POOL_INVESTIGATOR_CH2_CYCLE, POOL_INVESTIGATOR_CH2_PACKS, POOL_INVESTIGATOR_CYCLE, POOL_INVESTIGATOR_PACKS, SPECIAL_PACKS } from '@app_constants';
+import { cycleName, expandPackCode, getCardPoolSections, POOL_INVESTIGATOR_CH2_CYCLE, POOL_INVESTIGATOR_CH2_CYCLE_LEGACY, POOL_INVESTIGATOR_CH2_PACKS, POOL_INVESTIGATOR_CYCLE, POOL_INVESTIGATOR_PACKS, SPECIAL_PACKS } from '@app_constants';
 import { useSettingValue } from '@components/core/hooks';
 import LanguageContext from '@lib/i18n/LanguageContext';
 import { getAllRealPacks, getPacksInCollection } from '@reducers/index';
@@ -407,9 +407,9 @@ export default function DeckCardPoolButton({ first, last, selectedPacks, setSele
       // When deselecting an investigator cycle, ensure the other is selected
       if (pack === POOL_INVESTIGATOR_CYCLE) {
         const without = current.filter(p => p !== pack);
-        return without.includes(POOL_INVESTIGATOR_CH2_CYCLE) ? without : [...without, POOL_INVESTIGATOR_CH2_CYCLE];
+        return without.includes(POOL_INVESTIGATOR_CH2_CYCLE) || without.includes(POOL_INVESTIGATOR_CH2_CYCLE_LEGACY) ? without : [...without, POOL_INVESTIGATOR_CH2_CYCLE];
       }
-      if (pack === POOL_INVESTIGATOR_CH2_CYCLE) {
+      if (pack === POOL_INVESTIGATOR_CH2_CYCLE || pack === POOL_INVESTIGATOR_CH2_CYCLE_LEGACY) {
         const without = current.filter(p => p !== pack);
         return without.includes(POOL_INVESTIGATOR_CYCLE) ? without : [...without, POOL_INVESTIGATOR_CYCLE];
       }
@@ -469,7 +469,7 @@ export function useImpliedCardPool(selectedPacks: string[]): CardPoolMode {
       return 'custom';
     }
     const hasAllInvestigatorPacks = POOL_INVESTIGATOR_PACKS.every(pack => set.has(pack)) || set.has(POOL_INVESTIGATOR_CYCLE);
-    const hasAllCh2InvestigatorPacks = POOL_INVESTIGATOR_CH2_PACKS.every(pack => set.has(pack)) || set.has(POOL_INVESTIGATOR_CH2_CYCLE);
+    const hasAllCh2InvestigatorPacks = POOL_INVESTIGATOR_CH2_PACKS.every(pack => set.has(pack)) || set.has(POOL_INVESTIGATOR_CH2_CYCLE) || set.has(POOL_INVESTIGATOR_CH2_CYCLE_LEGACY);
     if (!hasAllInvestigatorPacks && !hasAllCh2InvestigatorPacks) {
       // To be limited, you need at least one set of investigator packs
       return 'custom';
